@@ -1,130 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-  <!-- SEO -->
-  <title>Tools Wonder - Free Online Tools & Resources</title>
-  <meta name="description" content="Tools Wonder offers 150+ free online tools for SEO, image, coding, and business productivity. All in one place to save time and grow your projects." />
-  <meta name="keywords" content="SEO tools, free online tools, productivity, website optimization, AI tools" />
+export default function SuperPlatformLanding() {
+  const [query, setQuery] = useState("");
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Tools Wonder - Free Online Tools & Resources" />
-  <meta property="og:description" content="150+ free online tools for SEO, images, coding & more." />
-  <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
-  <meta property="og:url" content="https://yourwebsite.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  const features = [
+    { key: "search", title: "AI Search Engine", desc: "SEO-first, web, images, videos & news with predictive AI.", emoji: "🔎", badge: "Google-like" },
+    { key: "video", title: "Video Platform", desc: "Upload, stream, monetize long-form content & shorts.", emoji: "🎥", badge: "YouTube-like" },
+    { key: "social", title: "Social Network", desc: "Profiles, groups, pages, reactions, real-time chat & community analytics.", emoji: "👥", badge: "Facebook-like" },
+    { key: "commerce", title: "E‑Commerce", desc: "Product catalog, cart, checkout, multi-vendor & subscription sales.", emoji: "🛒", badge: "Amazon-like" },
+    { key: "shorts", title: "Short Videos & Reels", desc: "Vertical reels, live gifts, AI video editor & creator tools.", emoji: "🎬", badge: "TikTok-like" },
+    { key: "media", title: "Photo & Story Sharing", desc: "Stories, filters, followers, likes & AI recommendations.", emoji: "📸", badge: "Instagram-like" },
+    { key: "stream", title: "Premium Streaming", desc: "Series, movies, DRM, offline download & subscription plans.", emoji: "📺", badge: "Netflix-like" },
+    { key: "b2b", title: "B2B Marketplace", desc: "Bulk quotes, RFQs, supplier CRM & global trade platform.", emoji: "🌏", badge: "Alibaba-like" },
+    { key: "ads", title: "Ads & Sponsorship", desc: "Display large brand ads, dynamic ad placements, monetization dashboard.", emoji: "📢", badge: "Brand Ads" },
+    { key: "ai-tools", title: "AI Tools Suite", desc: "Content generator, voice search, analytics & automation.", emoji: "🤖", badge: "AI Tools" },
+    { key: "gaming", title: "Mini Games & NFTs", desc: "In-platform games, NFT collectibles & gamified rewards.", emoji: "🎮", badge: "Gaming" },
+    { key: "payment", title: "Payment Gateway", desc: "Bkash, Nagad, PayPal, Stripe integration & subscription management.", emoji: "💰", badge: "Monetization" },
+    { key: "global", title: "Global Maps & Delivery", desc: "Worldwide mapping, delivery & server-based features.", emoji: "🗺️", badge: "Global Tools" },
+    { key: "nft", title: "NFT Marketplace", desc: "Create, buy, sell digital collectibles & rewards.", emoji: "🖼️", badge: "NFT" },
+    { key: "analytics", title: "Analytics Dashboard", desc: "Traffic, engagement, income & feature usage stats.", emoji: "📊", badge: "Analytics" },
+    { key: "referral", title: "Referral & Affiliate", desc: "Earn through sharing & affiliate programs.", emoji: "🔗", badge: "Referral" },
+    { key: "ai-personalization", title: "AI Personalization", desc: "Tailored content, recommendations & dynamic UI.", emoji: "✨", badge: "AI" },
+    { key: "offline", title: "Offline Mode", desc: "Download content & access tools without internet.", emoji: "📥", badge: "Offline" },
+    { key: "automation", title: "Automation Tools", desc: "Schedule posts, content generation & workflow automation.", emoji: "⚙️", badge: "Automation" },
+    // Additional features can be added to reach 150+ total
+  ];
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Tools Wonder",
-    "url": "https://yourwebsite.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourwebsite.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-slate-200">
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-9 w-9 rounded-2xl bg-slate-900 text-white grid place-items-center shadow-md">CT</div>
+            <span className="font-semibold tracking-tight">CT Super Platform</span>
+          </div>
+          <div className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#features" className="hover:text-slate-900">Features</a>
+            <a href="#highlights" className="hover:text-slate-900">Why Us</a>
+            <a href="#pricing" className="hover:text-slate-900">Pricing</a>
+            <a href="#cta" className="hover:text-slate-900">Get Started</a>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="px-4 py-2 text-sm rounded-xl border border-slate-300 hover:bg-slate-100">Sign in</button>
+            <button className="px-4 py-2 text-sm rounded-xl bg-slate-900 text-white shadow">Create account</button>
+          </div>
+        </nav>
+      </header>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      color: #222;
-    }
-    header {
-      background: #0077ff;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-    }
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 30px;
-    }
-    .tool-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .tool-card:hover {
-      transform: translateY(-5px);
-    }
-    footer {
-      background: #111;
-      color: #ccc;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Tools Wonder</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/tools">Tools</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </header>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                All-in-One Platform with <span className="bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">150+ Futuristic Tools & Monetization</span>
+              </h1>
+              <p className="mt-4 text-slate-600 max-w-xl">
+                Build a platform combining Search, Video, Social, Shop, Streaming, B2B, AI Tools, Gaming, NFT, Ads, and global features. SEO-ready, mobile-first, and monetization optimized.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <div className="rounded-3xl p-2 bg-white border border-slate-200 shadow-xl">
+                <div className="rounded-2xl p-6 bg-gradient-to-br from-slate-900 to-slate-700 text-white">
+                  <p className="text-sm/relaxed opacity-90">Unified Search & Tools</p>
+                  <div className="mt-3 flex items-center gap-2 rounded-2xl bg-white/10 p-2">
+                    <input aria-label="Search" placeholder="Search web, videos, AI tools, products..." className="flex-1 bg-transparent outline-none placeholder:text-white/70 px-3 py-2" value={query} onChange={(e) => setQuery(e.target.value)} />
+                    <button className="px-4 py-2 bg-white text-slate-900 rounded-xl">Search</button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-  <section class="hero">
-    <h1>150+ Free Online Tools</h1>
-    <p>Boost your productivity with SEO, coding, and image tools – all in one place.</p>
-    <img src="hero-tools.jpg" alt="Collection of online tools" loading="lazy" width="800" height="400">
-  </section>
-
-  <section class="tools-grid">
-    <div class="tool-card">
-      <img src="image-compressor.jpg" alt="Image Compressor Tool" loading="lazy" width="400" height="200">
-      <h3>Image Compressor</h3>
-      <p>Reduce image size without losing quality.</p>
-    </div>
-    <div class="tool-card">
-      <img src="seo-analyzer.jpg" alt="SEO Analyzer Tool" loading="lazy" width="400" height="200">
-      <h3>SEO Analyzer</h3>
-      <p>Analyze and optimize your website for better ranking.</p>
-    </div>
-    <div class="tool-card">
-      <img src="password-generator.jpg" alt="Password Generator Tool" loading="lazy" width="400" height="200">
-      <h3>Password Generator</h3>
-      <p>Generate strong & secure passwords instantly.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Tools Wonder. All Rights Reserved.</p>
-  </footer>
-</body>
-</html>
+      {/* Feature Grid Section */}
+      <section id="features" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="max-w-2xl">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">150+ Futuristic Tools & Monetization Features</h2>
+          <p className="mt-3 text-slate-600">From AI-powered search to premium streaming, ads, B2B, e-commerce, gaming & NFT features — all integrated for high engagement and income.</p>
+        </div>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {features.map((f) => (
+            <motion.article key={f.key} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45 }} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md">
+              <div className="flex items-center gap-2">
+                <div className="text-2xl">{f.emoji}</div>
+                <span className="text-xs px-2 py-1 rounded-lg bg-slate-100
